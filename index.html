@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Straytex</title>
+		<script language="Javascript" src="json.js"></script>
+		<script language="Javascript" src="straytex.js"></script>
+	</head>
+	
+	<body onload="ready()">
+		<canvas id="tex" width="256" height="256"></canvas>
+		<select id="size" onChange="sizeChanged()">
+			<option value="32">32x32</option>
+			<option value="64">64x64</option>
+			<option value="128">128x128</option>
+			<option value="256" selected>256x256</option>
+			<option value="512">512x512</option>
+			<option value="1024">1024x1024</option>
+		</select><br />
+		<div id="status"><br /></div>
+		<br />
+		Random seed: <input id="seed" type="text" value="123456" /> <input type="submit" onclick="newSeed()" value="Generate" /><br />
+		<textarea id="source" cols="80" rows="20"></textarea> <a href="help.html" target="_blank" style="border-bottom: 1px dotted #FF8040; text-decoration: none; color: #FF8040">Help</a><br />
+	<input type="submit" onclick="draw()" value="Draw" /> <input type="submit" onclick="tag()" value="Tag" /> <select id="tags" onChange="tagChanged()">
+		<option disabled>Tags</option>
+	</select> <input type="submit" onclick="revert()" value="Revert to last tag" />
+	</body>
+</html>

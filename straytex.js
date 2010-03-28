@@ -62,7 +62,11 @@ function keyhandler(e) {
 function ready() {
 	var area = document.getElementById('source');
 	area.addEventListener('keydown', keyhandler, false);
-	document.getElementById('source').value = tags['brushed aluminum'];
+	var hash = self.document.location.hash.substring(1);
+	if(hash != '' && hash != null)
+		document.getElementById('source').value = unescape(hash);
+	else
+		document.getElementById('source').value = tags['brushed aluminum'];
 }
 
 var worker = new Worker('texworker.js');
@@ -78,6 +82,9 @@ function draw() {
 		canvas.swap(eval('['+e.data+']'));
 		status.innerHTML = '<br />';
 	}
+	
+	var link = 'http://stuff.daeken.com/Straytex/#' + escape(source);
+	document.getElementById('link').value = link;
 }
 
 var tags = {};

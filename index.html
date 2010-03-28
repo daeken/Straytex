@@ -19,8 +19,9 @@
 		<br />
 		Random seed: <input id="seed" type="text" value="123456" /> <input type="submit" onclick="newSeed()" value="Generate" /><br />
 		<textarea id="source" cols="80" rows="20"></textarea> <a href="help.html" target="_blank" style="border-bottom: 1px dotted #FF8040; text-decoration: none; color: #FF8040">Help</a><br />
-	<input type="submit" onclick="draw()" value="Draw" /> <input type="submit" onclick="tag()" value="Tag" /> <select id="tags" onChange="tagChanged()">
-		<option disabled>Tags</option>
-	</select> <input type="submit" onclick="revert()" value="Revert to last tag" />
+		<input type="submit" onclick="draw()" value="Draw" /> <input type="submit" onclick="tag()" value="Tag" /> <select id="tags" onChange="tagChanged()">
+			<option disabled>Tags</option>
+		</select> <input type="submit" onclick="revert()" value="Revert to last tag" /><br />
+		Link: <input type="text" id="link" />
 	</body>
 </html>

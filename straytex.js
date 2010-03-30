@@ -93,16 +93,17 @@ tags['brushed aluminum'] =
 var length = width >> 3;\n\
 var lengthbase = log2(length);\n\
 var noise = noisebw(width, height, length);\n\
-for(var y = 0, noff = 0, off = 0; y < height; ++y)\n\
-	for(var x = 0; x < width; ++x, ++noff, off += 3) {\n\
-		var val = 0;\n\
-		for(var i = 0; i < length; ++i)\n\
-				val += noise[noff + i];\n\
-		val >>= lengthbase;\n\
-		texture[off] = val;\n\
-		texture[off+1] = val;\n\
-		texture[off+2] = (val + (val >> 4)) & 0xFF;\n\
-	}\n\
+var noff = 0;\n\
+map(\n\
+		function(x, y) {\n\
+			var val = 0;\n\
+			for(var i = 0; i < length; ++i)\n\
+					val += noise[noff + i];\n\
+			val >>= lengthbase;\n\
+			++noff;\n\
+			return [val, val, val + (val >> 4)];\n\
+		}\n\
+	);\n\
 ';
 var curTag = -1;
 function tag() {

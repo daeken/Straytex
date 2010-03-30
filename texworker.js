@@ -59,3 +59,19 @@ function noisecolor(width, height, add) {
 function log2(value) {
 	return Math.log(value) / Math.LN2;
 }
+
+function mapbw(fun) {
+	for(var y = 0, off = 0; y < height; ++y)
+		for(var x = 0; x < width; ++x, off += 3)
+			texture[off] = texture[off + 1] = texture[off + 2] = fun(x, y) & 0xFF;
+}
+
+function map(fun) {
+	for(var y = 0, off = 0; y < height; ++y)
+		for(var x = 0; x < width; ++x, off += 3) {
+			var color = fun(x, y);
+			texture[off] = color[0] & 0xFF;
+			texture[off+1] = color[1] & 0xFF;
+			texture[off+2] = color[2] & 0xFF;
+		}
+}

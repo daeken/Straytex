@@ -11,9 +11,11 @@
 <ul>
 <li><code>width</code> and <code>height</code> -- Width and height of the texture canvas</li>
 <li><code>texture</code> -- Array of <code>width*height*3</code> integers between 0 and 255.  This is your texture data, in RGB.</li>
+<li><code>noise(width, height, add=0)</code> -- Generates an array of <code>width*height*3+add</code> random values from 0-255.  This is generally used when you need color noise data.</li>
 <li><code>noisebw(width, height, add=0)</code> -- Generates an array of <code>width*height+add</code> random values from 0-255.</li>
-<li><code>noisebw(width, height, add=0)</code> -- Generates an array of <code>width*height*3+add</code> random values from 0-255.  This is generally used when you need color noise data.</li>
 <li><code>log2(value)</code> -- Natural logarithm of base 2.</li>
+<li><code>map(function(x, y))</code> -- Calls your function for every x and y on the texture.  You should return an array of 3 values to put in that texel.</li>
+<li><code>mapbw(function(x, y))</code> -- Equivalent to <code>map</code>, with the exception that you return a single value, giving you a black and white texture.</li>
 </ul>
 	</body>
 </html>

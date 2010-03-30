@@ -95,15 +95,15 @@ var lengthbase = log2(length);\n\
 var noise = noisebw(width, height, length);\n\
 var noff = 0;\n\
 map(\n\
-		function(x, y) {\n\
-			var val = 0;\n\
-			for(var i = 0; i < length; ++i)\n\
-					val += noise[noff + i];\n\
-			val >>= lengthbase;\n\
-			++noff;\n\
-			return [val, val, val + (val >> 4)];\n\
-		}\n\
-	);\n\
+	function(x, y) {\n\
+		var val = 0;\n\
+		for(var i = 0; i < length; ++i)\n\
+				val += noise[noff + i];\n\
+		val >>= lengthbase;\n\
+		++noff;\n\
+		return [val, val, val + (val >> 4)];\n\
+	}\n\
+);\n\
 ';
 var curTag = -1;
 function tag() {
